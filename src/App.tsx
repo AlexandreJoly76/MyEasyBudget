@@ -1,19 +1,6 @@
-import { supabase } from './lib/supabase'
-import { useEffect } from 'react'
 import { SavingsCard } from './components/SavingsCard'
 
 function App() {
-  // ⚠️ TEMPORAIRE : vérifie que l'app arrive à joindre Supabase
-  useEffect(() => {
-    supabase.auth.getSession().then(({ error }) => {
-      if (error) {
-        console.error('❌ Supabase injoignable :', error.message)
-      } else {
-        console.log('✅ Connexion à Supabase réussie')
-      }
-    })
-  }, [])
-
   return (
     <main className="mx-auto min-h-svh max-w-md px-5 pt-12">
       <p className="text-sm font-medium text-muted">
