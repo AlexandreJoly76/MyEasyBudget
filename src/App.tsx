@@ -7,7 +7,7 @@ function App() {
         5 nov. – 4 déc. · 17 jours restants
       </p>
       <h1 className="font-title text-3xl font-bold tracking-tight">Budget du foyer</h1>
-      <SavingsCard remainingCents={226800} minimumCents={174000}></SavingsCard>
+      <SavingsCard remainingCents={226880} minimumCents={174000} />
     </main>
   )
 }

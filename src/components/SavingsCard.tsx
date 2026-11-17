@@ -1,13 +1,13 @@
 import { formatAmount, formatEuros } from '../lib/money'
 
-type SavingCardProps = {
+type SavingsCardProps = {
   /** Reste de la période, en centimes */
   remainingCents: number
   /** Reste minimum si chaque enveloppe est dépensée en entier, en centimes */
   minimumCents: number
 }
 
-export function SavingsCard({ remainingCents, minimumCents }: SavingCardProps) {
+export function SavingsCard({ remainingCents, minimumCents }: SavingsCardProps) {
   return (
     <section className="mt-4 rounded-[28px] bg-hero p-6 text-white">
       <p className="text-[15px] font-semibold text-hero-muted">
@@ -19,7 +19,7 @@ export function SavingsCard({ remainingCents, minimumCents }: SavingCardProps) {
         </span>
         <span className="text-3xl font-semibold text-hero-muted">€</span>
       </p>
-      <div className="my-4 h-px bg-white/20"></div>
+      <div className="my-4 h-px bg-white/20" />
       <p className="flex items-center justify-between gap-3 text-sm text-hero-muted">
         Minimum si chaque enveloppe est respectée
         <span className="font-title text-xl font-bold text-white">
