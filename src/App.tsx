@@ -1,5 +1,4 @@
-import { SavingCard } from "./components/SavingsCard"
-
+import { SavingsCard } from './components/SavingsCard'
 
 function App() {
   return (
@@ -7,13 +6,8 @@ function App() {
       <p className="text-sm font-medium text-muted">
         5 nov. – 4 déc. · 17 jours restants
       </p>
-      <h1 className="font-title text-3xl font-bold tracking-tight">
-        Budget du foyer
-      </h1>
-      <SavingCard 
-      remainingCents={226800}
-      minimumCents={174000}>
-      </SavingCard>
+      <h1 className="font-title text-3xl font-bold tracking-tight">Budget du foyer</h1>
+      <SavingsCard remainingCents={226800} minimumCents={174000}></SavingsCard>
     </main>
   )
 }

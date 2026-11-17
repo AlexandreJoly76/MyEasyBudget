@@ -1,22 +1,22 @@
-@import "tailwindcss";
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/space-grotesk";
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
 
 /* 1. Les couleurs de MyEasyBudget en mode clair (reprises de la maquette) */
 :root {
-  --c-background: #f3f5f2;   /* fond de l'écran */
-  --c-surface: #ffffff;      /* fond des cartes */
-  --c-ink: #11201b;          /* texte principal */
-  --c-muted: #4d5e57;        /* texte secondaire */
-  --c-line: #e0e7e3;         /* bordures et séparateurs */
-  --c-brand: #0b6b5b;        /* vert principal : boutons, liens */
-  --c-brand-soft: #ddf0ea;   /* vert très clair : fonds d'icônes */
-  --c-on-brand: #ffffff;     /* texte posé sur le vert principal */
-  --c-hero: #0b5e50;         /* carte « Potentiellement économisable » */
-  --c-hero-muted: #cdebe3;   /* texte secondaire sur cette carte */
-  --c-warning: #b7690a;      /* enveloppe presque pleine */
+  --c-background: #f3f5f2; /* fond de l'écran */
+  --c-surface: #ffffff; /* fond des cartes */
+  --c-ink: #11201b; /* texte principal */
+  --c-muted: #4d5e57; /* texte secondaire */
+  --c-line: #e0e7e3; /* bordures et séparateurs */
+  --c-brand: #0b6b5b; /* vert principal : boutons, liens */
+  --c-brand-soft: #ddf0ea; /* vert très clair : fonds d'icônes */
+  --c-on-brand: #ffffff; /* texte posé sur le vert principal */
+  --c-hero: #0b5e50; /* carte « Potentiellement économisable » */
+  --c-hero-muted: #cdebe3; /* texte secondaire sur cette carte */
+  --c-warning: #b7690a; /* enveloppe presque pleine */
   --c-warning-soft: #fcebd2;
-  --c-danger: #a32e0c;       /* enveloppe dépassée, déficit */
+  --c-danger: #a32e0c; /* enveloppe dépassée, déficit */
 }
 
 /* 2. Les mêmes couleurs en mode sombre : seules les valeurs changent */
@@ -55,8 +55,8 @@
   --color-warning-soft: var(--c-warning-soft);
   --color-danger: var(--c-danger);
 
-  --font-sans: "Inter Variable", system-ui, sans-serif;
-  --font-title: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-title: 'Space Grotesk Variable', system-ui, sans-serif;
 }
 
 /* 4. Le style de base de toute la page */
