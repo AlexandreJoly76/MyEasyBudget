@@ -1,0 +1,60 @@
+name: Vérifier et déployer
+
+# Quand l'Action se lance : à chaque push sur la branche main
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # ─── Job 1 : vérifier que le code est sain ───
+  verifier:
+    runs-on: ubuntu-latest # une machine Linux toute neuve, fournie par GitHub
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v5
+
+      - name: Installer Node 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm # garde node_modules en cache pour aller plus vite
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Tests
+        run: npx vitest run
+
+      - name: Build
+        run: npm run build
+
+  # ─── Job 2 : déployer, seulement si le job 1 a réussi ───
+  deployer:
+    needs: verifier # ← la ligne clé : attend que « verifier » soit vert
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v5
+
+      - name: Installer Node 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Installer la CLI Vercel
+        run: npm install --global vercel@latest
+
+      - name: Récupérer la configuration du projet Vercel
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Construire le site
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Mettre en ligne
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
